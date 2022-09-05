@@ -1,0 +1,3 @@
+CREATE DATABASE noucleus_db;
+CREATE USER noucleus WITH PASSWORD 'crispr';
+GRANT ALL PRIVILEGES ON DATABASE noucleus_db TO noucleus;

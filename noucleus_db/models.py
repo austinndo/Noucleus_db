@@ -14,6 +14,7 @@ class Gene(models.Model):
     name = models.CharField(blank=False, max_length=100)
     species = models.CharField(blank=False, max_length=100)
     function = models.TextField()
+    image_ref = models.TextField(null=True)
 
     def __str__(self):
         return self.name
@@ -34,7 +35,7 @@ class Guide(models.Model):
     gene = models.ForeignKey(
         Gene, on_delete=models.CASCADE, related_name='gene_guides')
     user = models.ForeignKey(
-        Gene, on_delete=models.CASCADE, related_name='user_guides')
+        User, on_delete=models.CASCADE, related_name='user_guides')
     sequence = models.TextField(max_length=28, blank=False)
     strand = models.CharField(choices=STRAND_CHOICES,
                               default="+", max_length=10)

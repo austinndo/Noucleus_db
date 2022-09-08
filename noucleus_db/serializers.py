@@ -9,7 +9,7 @@ class GuideSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Guide
         fields = ('id', 'gene', 'user', 'sequence', 'strand',
-                  'cas', 'efficiency', 'percent_gc')
+                  'cas', 'edit_type', 'efficiency', 'percent_gc')
 
 
 class GeneSerializer(serializers.HyperlinkedModelSerializer):

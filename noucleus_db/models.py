@@ -9,6 +9,13 @@ STRAND_CHOICES = (
     (reverse_strand, "reverse")
 )
 
+EDIT_CHOICES = (
+    ("disruption", "disruption"),
+    ("deletion", "deletion"),
+    ("insertion", "insertion"),
+    ("correction", "correction")
+)
+
 
 class Gene(models.Model):
     name = models.CharField(blank=False, max_length=100)
@@ -40,6 +47,8 @@ class Guide(models.Model):
     strand = models.CharField(choices=STRAND_CHOICES,
                               default="+", max_length=10)
     cas = models.CharField(max_length=20)
+    edit_type = models.CharField(
+        choices=EDIT_CHOICES, default="disruption", max_length=20)
     efficiency = models.FloatField()
     percent_gc = models.IntegerField()
 
